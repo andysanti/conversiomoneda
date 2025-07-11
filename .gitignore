@@ -1,0 +1,27 @@
+# Maven/Gradle build output
+target/
+target/classes
+**/target/
+
+# Compiled class files
+*.class
+
+# IDE-specific files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Generated artifacts
+*.jar
+*.war
+*.ear
+
+# Log files
+*.log
+*.logs
+
+# OS-specific files
+.DS_Store
+Thumbs.db

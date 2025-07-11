@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
 
 
 @RestController
-@RequestMapping("v1/conversion/")
+@RequestMapping("v1/conversion")
 public class ConversionController {
 
     Logger logger = LoggerFactory.getLogger(ConversionController.class);
