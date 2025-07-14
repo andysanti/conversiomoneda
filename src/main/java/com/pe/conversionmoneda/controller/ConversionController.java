@@ -3,6 +3,7 @@ package com.pe.conversionmoneda.controller;
 import com.pe.conversionmoneda.dto.CalculoConversionDtoRequest;
 import com.pe.conversionmoneda.dto.CalculoConversionDtoResponse;
 import com.pe.conversionmoneda.service.CalculoConversionService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,7 @@ public class ConversionController {
     }
 
     @PostMapping(produces = "application/json")
-    public ResponseEntity<Mono<CalculoConversionDtoResponse>> getCalculoRemesa(@RequestBody CalculoConversionDtoRequest request){
+    public ResponseEntity<Mono<CalculoConversionDtoResponse>> getCalculoRemesa(@Valid @RequestBody CalculoConversionDtoRequest request){
         logger.info("inicio llamada para conversion {}",request.toString());
         return new ResponseEntity<>(calculoRemesaService.calculoConversion( request), HttpStatus.OK);
     }

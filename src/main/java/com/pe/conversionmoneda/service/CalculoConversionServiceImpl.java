@@ -1,5 +1,6 @@
 package com.pe.conversionmoneda.service;
 
+import com.pe.conversionmoneda.configuration.ResourceNotFoundException;
 import com.pe.conversionmoneda.dominio.Conversion;
 import com.pe.conversionmoneda.dto.CalculoConversionDtoRequest;
 import com.pe.conversionmoneda.dto.CalculoConversionDtoResponse;
@@ -41,7 +42,7 @@ public class CalculoConversionServiceImpl implements CalculoConversionService{
 
         Mono<Conversion> monoResponse = Mono.justOrEmpty(conversionOptional);
         return monoResponse
-                .switchIfEmpty(Mono.empty())
+                .switchIfEmpty(Mono.error(new ResourceNotFoundException("no encontrado")))
                 .map(
                 conversion -> (CalculoConversionDtoResponse.builder().monedaOrigen(conversion.getMonedaOrigen())
                         .monedaDestino(conversion.getMonedaDestino())
